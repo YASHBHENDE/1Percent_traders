@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Button } from "../components/ui/button";
+import { Button } from "../ShadcnCompoenent/ui/button";
 import { useNavigate } from "react-router-dom";
 import { stockType } from "./stocks";
 

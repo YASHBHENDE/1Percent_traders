@@ -1,6 +1,7 @@
 import exxpress, { NextFunction, Request, Response } from 'express'
 import jwt from 'jsonwebtoken'
-export const SECRET = 'BHENDE'
+
+import { SECRET } from '../config'
 
 export const middleware = (req:Request,res:Response,next:NextFunction)=>{
    

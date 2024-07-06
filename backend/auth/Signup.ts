@@ -1,9 +1,9 @@
 import  express  from "express";
-import { User } from "../db";
+
 import jwt from 'jsonwebtoken'
 const router = express.Router()
 import { PrismaClient } from '@prisma/client'
-import { SECRET } from "./middleware";
+import { SECRET } from "../config";
 import {z} from 'zod'
 
 const prisma = new PrismaClient()
@@ -29,13 +29,12 @@ router.post('/',async(req,res)=>{
     if(!validation.success){
         res.send({"msg":"username should be minimum (3) characters and password should be minnimum of (5) characters"})
     }else{
-    // const usernameExists = await User.findOne({username:username})
+   
     const usernameExists = await prisma.user.findFirst({
         where:{
             username:username
         }
-    })
-    // const emailExits = await User.findOne({email:email})
+    })   
 
     const emailExits = await prisma.user.findUnique({
         where:{
@@ -50,9 +49,7 @@ router.post('/',async(req,res)=>{
     }else if( usernameExists){
         res.send({"usernameExists":"User name already exists, pls choose another username"}) 
     }else{
-        // const newUser = await User.create({'username':username,'password':password,'email':email})
-        // newUser.save()
-
+        
         const newUser = await prisma.user.create({
             data:{
                 username:username,

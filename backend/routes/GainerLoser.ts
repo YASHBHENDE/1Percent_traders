@@ -1,6 +1,6 @@
 import express from 'express'
 import axios from 'axios';
-import { API_KEY } from '../db';
+import { API_KEY } from '../config';
 
 const router = express.Router()
 
@@ -17,11 +17,11 @@ async function getData() {
       console.log(response.data);
     } catch (error:any) {
       if (error.response) {
-        // Axios error
+        
         console.log('Status:', error.response.status);
         console.log('Error message:', error.message);
       } else {
-        // Generic error
+        
         console.log('Error:', error.message);
       }
     }

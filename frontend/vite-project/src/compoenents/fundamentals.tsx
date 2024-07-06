@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Skeleton } from "../components/ui/skeleton";
+import { Skeleton } from "../ShadcnCompoenent/ui/skeleton";
 import { fundamentalType } from "./stocks";
-import { Button } from "../components/ui/button";
+import { Button } from "../ShadcnCompoenent/ui/button";
 import {
     Table,
     TableBody,
@@ -13,8 +13,8 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table";
-import { Separator } from "@/components/ui/separator"
+} from "@/ShadcnCompoenent/ui/table";
+
 
 export default function Fundamentals() {
     const [fundamentals, setFundamentals] = useState<fundamentalType>();

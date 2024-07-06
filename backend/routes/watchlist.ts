@@ -7,7 +7,7 @@ const router = express.Router()
 router.post('/post', async (req, res) => {
     const stockName :string = req.body.stockName
     const userid = req.headers.userId as string
-    // console.log(stockName)
+ 
     if (!userid) {
         return res.status(400).json({ "msg": "User ID is required" })
     }

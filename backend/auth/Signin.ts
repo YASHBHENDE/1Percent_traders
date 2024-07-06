@@ -1,8 +1,8 @@
 import  express  from "express";
-import { User } from "../db";
+
 import jwt from 'jsonwebtoken'
 const router = express.Router()
-import { SECRET } from "./middleware";
+import { SECRET } from '../config';
 import { PrismaClient } from '@prisma/client'
 import { z } from "zod";
 const prisma = new PrismaClient()
@@ -25,7 +25,7 @@ router.post('/',async (req,res)=>{
 
     if(validation.success){
         
-            // const UserExists = await User.findOne({email:email,password:password})
+            
         const UserExists = await prisma.user.findUnique({
             where:{
                 email:email,

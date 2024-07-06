@@ -6,9 +6,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../../components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+} from "../../ShadcnCompoenent/ui/card";
+import { Input } from "@/ShadcnCompoenent/ui/input";
+import { Button } from "@/ShadcnCompoenent/ui/button";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

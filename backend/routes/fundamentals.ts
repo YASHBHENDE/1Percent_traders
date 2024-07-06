@@ -1,12 +1,12 @@
 import axios from "axios";
 import express from "express";
-import { API_KEY } from "../db";
+import { API_KEY } from "../config";
 
 
 const router = express.Router()
 
 async function getData(stockname:string) {
-    // Replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+  
     const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stockname}&apikey=${API_KEY}`;
   
     try {

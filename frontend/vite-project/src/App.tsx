@@ -12,7 +12,7 @@ import {
 } from 'recoil';
 import { userState } from "./store";
 import axios from "axios";
-import { ThemeProvider } from "./components/theme-prvider"
+import { ThemeProvider } from "./ShadcnCompoenent/theme-prvider"
 import Fundamentals from "./compoenents/fundamentals";
 import Watchlist from "./compoenents/watchlist";
 import Sentiment from "./compoenents/sentiment";

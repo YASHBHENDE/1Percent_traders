@@ -4,9 +4,9 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from "../components/ui/avatar"
+} from "../ShadcnCompoenent/ui/avatar"
 
-import { Button } from "../components/ui/button"
+import { Button } from "../ShadcnCompoenent/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/ShadcnCompoenent/ui/dropdown-menu"
 import { userState } from "../store"
 import { useNavigate } from "react-router-dom"
 

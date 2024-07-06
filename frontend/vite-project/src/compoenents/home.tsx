@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Skeleton } from "@/components/ui/skeleton"
+import { Button } from "@/ShadcnCompoenent/ui/button"
+import { Skeleton } from "@/ShadcnCompoenent/ui/skeleton"
 interface News {
     title: string;
     url: string;

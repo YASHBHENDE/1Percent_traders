@@ -1,16 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "../components/ui/button";
+import { Button } from "../ShadcnCompoenent/ui/button";
 import { useRecoilValue } from "recoil";
 import { userState } from "../store";
 import UserNav from "./uer-nav";
-import { Input } from "@/components/ui/input";
-import { ModeToggle } from "../components/mode-toggle";
+import { Input } from "@/ShadcnCompoenent/ui/input";
+import { ModeToggle } from "../ShadcnCompoenent/mode-toggle";
 import { useState } from "react";
-import stocks, { SearchStocks, stockType } from "./stocks"; // Ensure stocks and types are imported correctly
+import stocks, { SearchStocks, stockType } from "./stocks"; 
 
 export default function Appbar() {
     const [stockName, setStockName] = useState<SearchStocks>([]);
-    const [isListHidden, setIsListHidden] = useState(false); // State to manage list visibility
+    const [isListHidden, setIsListHidden] = useState(false); 
 
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
