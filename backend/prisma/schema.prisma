@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  // url      = "mongodb+srv://yashabhaybhende:yDNiVSuVfrjyeMXY@cluster0.g6nsvuo.mongodb.net/1traders"
+  url = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  email     String  @unique
+  username  String
+  password  String
+  watchlist UserStocks[]
+}
+
+model UserStocks {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  stocks String
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+}
