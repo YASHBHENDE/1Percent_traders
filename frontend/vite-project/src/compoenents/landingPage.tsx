@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../src/ShadcnCompoenent/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '../ShadcnCompoenent/ui/card';
-
+import img from '../assets/icons8-news-96.png'
+import img2 from '../assets/icons8-meter-96.png'
+import img3 from '../assets/icons8-stock-96.png'
 
 export default function LandingPage() {
     const navigate = useNavigate();
@@ -29,7 +31,9 @@ export default function LandingPage() {
                             <CardTitle>Latest news</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            
+                            <center>
+                                <img src={img} alt="" />
+                            </center>
                         </CardContent>
                     </Card>
                     
@@ -41,7 +45,9 @@ export default function LandingPage() {
                             <CardTitle>Market Sentiment</CardTitle>
                         </CardHeader>
                         <CardContent>
-                        news ICon
+                            <center>
+                                <img src={img2} alt="" />
+                            </center>
                         </CardContent>
                     </Card>
                 
@@ -52,7 +58,9 @@ export default function LandingPage() {
                             <CardTitle>Stock Fundamentals</CardTitle>
                         </CardHeader>
                         <CardContent>
-                         news ICon
+                            <center>
+                            <img src={img3} alt="" />
+                            </center>
                         </CardContent>
                     </Card>
                     
