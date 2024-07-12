@@ -1,5 +1,5 @@
 import express from "express"
-
+import { io } from "../server"
 const router = express.Router()
 
 function MARKET_STATUS(){
@@ -41,9 +41,14 @@ function MARKET_STATUS(){
 
 router.get("/", (req, res) => {
     const avgChange = MARKET_STATUS();
-    
-    
-    res.status(200).json( avgChange );
+    console.log(avgChange)
+    // setInterval(()=>{
+    //     let random = Math.floor(Math.random()*4)
+    //     io.emit('sentiment changed', random)
+    // },3000)
+
+    io.emit('sentiment changed', avgChange.sentiment_value);
+    res.status(200).json(avgChange);
 });
   
 

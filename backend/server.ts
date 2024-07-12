@@ -12,11 +12,30 @@ import trail from './routes/trial'
 import watchlists from './routes/watchlist'
 import { PrismaClient } from '@prisma/client'
 import sentiment from './routes/Sentiments'
+import { createServer } from 'node:http';
+import { Server } from 'socket.io';
 const PORT = 3000
 
 const app = express()
+const server = createServer(app);
+export const io = new Server(server,{
+    cors: {
+      origin: "http://localhost:5173"
+    }
+  });
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+
+
+    socket.on("disconnect", (reason) => {
+        console.log("disconnnected bro")
+    });
+});
+
+  
 const prisma = new PrismaClient()
-app.use(cors())
+app.use(cors());
 app.use(bodyparser.json())
 
 app.use('/auth/signup',signup)
@@ -51,6 +70,8 @@ app.get('/me',middleware,async(req:Request,res:Response)=>{
     }
     
 })
-app.listen(PORT,()=>{
+
+io.listen(4000)
+server.listen(PORT,()=>{
     console.log(`listeing on port ${PORT}`)
 })
