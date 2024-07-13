@@ -26,7 +26,7 @@ export default function LandingPage() {
         <hr />
 
         
-        
+       
         <div style={{display:'flex',}}>
 
                     
@@ -72,15 +72,15 @@ export default function LandingPage() {
             <div>
                 <img src="https://i.ibb.co/7Q2MVHm/pic21.jpg" alt="foto" style={{ width: '350px', margin: '10px', borderRadius: '8px' }} />
             </div>
-            <center style={{marginRight:'30vh'}}>
-            <div>
+           
+            <div style={{marginRight:'21vh',marginTop:'18vh'}}>
                 <h3>
                     Begin your journey for free!
                     <br /><br />
-                    <Button variant='link' onClick={() => navigate("/signup")}>Sign up</Button>
+                    <Button  onClick={() => navigate("/signup")}>Sign up</Button>
                 </h3>
             </div>
-            </center>
+            
         </div>
     </>
     
