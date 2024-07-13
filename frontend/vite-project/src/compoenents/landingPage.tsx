@@ -73,7 +73,7 @@ export default function LandingPage() {
                 <img src="https://i.ibb.co/7Q2MVHm/pic21.jpg" alt="foto" style={{ width: '350px', margin: '10px', borderRadius: '8px' }} />
             </div>
            
-            <div style={{marginRight:'21vh',marginTop:'18vh'}}>
+            <div style={{marginRight:'40vh',marginTop:'18vh'}}>
                 <h3>
                     Begin your journey for free!
                     <br /><br />
