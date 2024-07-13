@@ -64,7 +64,7 @@ export default function HomePage(){
         return<>
             
             
-            <div style={{ margin: '20px', fontFamily: 'Arial, sans-serif' }}>
+            <div style={{ margin: '20px' }}>
                 {news.map((SingleNew, index) => (
                     <div 
                     key={index} 
@@ -74,14 +74,14 @@ export default function HomePage(){
                         alignItems: 'center', 
                         marginBottom: '20px', 
                         padding: '10px', 
-                        border: '1px solid #ddd', 
+                       
                         borderRadius: '5px', 
-                        backgroundColor: '#f9f9f9',
+                     
                         overflow: 'hidden'
                     }}
                     >
                     <div style={{ flex: 1, paddingRight: '10px', maxWidth: '80%' }}>
-                        <p style={{ color: '#555' }}>{SingleNew.authors.join(', ')}</p>
+                        <p className="text-sm text-muted-foreground">{SingleNew.authors.join(', ')}</p>
                         <h3 style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                         <Button 
                             variant="link" 
