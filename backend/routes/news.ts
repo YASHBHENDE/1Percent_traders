@@ -24,7 +24,7 @@ async function getData() {
 
 router.get('/',async(req,res)=>{
   const news =  await getData()
-
+  console.log(news)
   res.send({news})
 
 })

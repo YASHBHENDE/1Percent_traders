@@ -60,7 +60,7 @@ export default function Sentiment() {
 
     return (
         <>
-            <h1>Sentiment</h1>
+           
             <center style={{ marginTop: '25vh' }}>
                 <ReactSpeedometer
                     value={needle}
