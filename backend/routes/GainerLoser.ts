@@ -5,7 +5,7 @@ import { API_KEY } from '../config';
 const router = express.Router()
 
 async function getData() {
-    // Replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
+    
     const url = `https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey=${API_KEY}`;
   
     try {

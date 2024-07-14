@@ -53,7 +53,7 @@ router.get('/get', async (req, res) => {
         }
 
         res.json(user.watchlist)
-        // console.log(user.watchlist)
+        
     } catch (error: any) {
         res.status(500).json({ "msg": "An error occurred", "error": error.message })
     }

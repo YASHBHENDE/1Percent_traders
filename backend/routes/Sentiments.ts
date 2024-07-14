@@ -42,6 +42,7 @@ function MARKET_STATUS(){
 router.get("/", (req, res) => {
     const avgChange = MARKET_STATUS();
     console.log(avgChange)
+    // for testing 
     // setInterval(()=>{
     //     let random = Math.floor(Math.random()*4)
     //     io.emit('sentiment changed', random)
