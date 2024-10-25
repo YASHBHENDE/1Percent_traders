@@ -43,12 +43,12 @@ router.get("/", (req, res) => {
     const avgChange = MARKET_STATUS();
     console.log(avgChange)
     // for testing 
-    // setInterval(()=>{
-    //     let random = Math.floor(Math.random()*4)
-    //     io.emit('sentiment changed', random)
-    // },3000)
+    setInterval(()=>{
+        let random = Math.floor(Math.random()*4)
+        io.emit('sentiment changed', random)
+    },1000)
 
-    io.emit('sentiment changed', avgChange.sentiment_value);
+    // io.emit('sentiment changed', avgChange.sentiment_value);
     res.status(200).json(avgChange);
 });
   
