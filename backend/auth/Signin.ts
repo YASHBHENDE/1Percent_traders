@@ -2,7 +2,7 @@ import  express  from "express";
 
 import jwt from 'jsonwebtoken'
 const router = express.Router()
-import { SECRET } from '../config';
+import { DATABASE_URL, SECRET } from '../config';
 import { PrismaClient } from '@prisma/client'
 import { z } from "zod";
 const prisma = new PrismaClient()
@@ -24,6 +24,7 @@ router.post('/',async (req,res)=>{
     const validation = userInput.safeParse({email:email,password:password})
 
     if(validation.success){
+        
         
             
         const UserExists = await prisma.user.findUnique({
