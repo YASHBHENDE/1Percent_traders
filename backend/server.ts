@@ -10,6 +10,7 @@ import TopGainerLoser from './routes/GainerLoser'
 import fundementals from './routes/fundamentals'
 import trail from './routes/trial'
 import watchlists from './routes/watchlist'
+import tickersearch from "./routes/tickersearch"
 import { PrismaClient } from '@prisma/client'
 import sentiment from './routes/Sentiments'
 import { createServer } from 'node:http';
@@ -49,6 +50,9 @@ app.use('/watchlist',middleware,watchlists)
 
 app.use('/trial',middleware,trail)
 app.use('/sentiment',middleware,sentiment)
+
+app.use('/tickerSearch',tickersearch)
+
 app.get('/me',middleware,async(req:Request,res:Response)=>{
     const userId = req.headers.userId
 

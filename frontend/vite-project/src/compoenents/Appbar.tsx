@@ -8,12 +8,15 @@ import { ModeToggle } from "../ShadcnCompoenent/mode-toggle";
 import { useState } from "react";
 import stocks, { SearchStocks, stockType } from "./stocks"; 
 
+
 export default function Appbar() {
     const [stockName, setStockName] = useState<SearchStocks>([]);
     const [isListHidden, setIsListHidden] = useState(false); 
 
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
+
+
 
     if (user.username) {
         return (
