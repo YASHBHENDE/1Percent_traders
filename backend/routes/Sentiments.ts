@@ -48,6 +48,7 @@ router.get("/", (req, res) => {
         io.emit('sentiment changed', random)
     },1000)
 
+    
     // io.emit('sentiment changed', avgChange.sentiment_value);
     res.status(200).json(avgChange);
 });

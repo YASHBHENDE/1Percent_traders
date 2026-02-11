@@ -34,6 +34,7 @@ router.post('/',async (req,res)=>{
             }
         })
 
+      
         if(UserExists){
             const token = jwt.sign({'userId':UserExists.id},SECRET)
             res.send({"message":"logged in success fully","token":token})

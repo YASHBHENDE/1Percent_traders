@@ -5,18 +5,43 @@ import { userState } from "../store";
 import UserNav from "./uer-nav";
 import { Input } from "@/ShadcnCompoenent/ui/input";
 import { ModeToggle } from "../ShadcnCompoenent/mode-toggle";
-import { useState } from "react";
-import stocks, { SearchStocks, stockType } from "./stocks"; 
+import { useEffect, useState } from "react";
+
+import axios from "axios";
+import useDebouncing from "../hooks/debouncing";
 
 
+interface stockdisplay{
+    name:string,
+    symbol:string,
+    assetType:string,
+    exchange:string
+}
 export default function Appbar() {
-    const [stockName, setStockName] = useState<SearchStocks>([]);
+    const [stockName, setStockName] = useState<stockdisplay[]>([]);
     const [isListHidden, setIsListHidden] = useState(false); 
+    const [search,setsearch] = useState("")
+    const debouncedValue = useDebouncing(search,3000)
 
     const user = useRecoilValue(userState);
     const navigate = useNavigate();
+        
+    
 
 
+
+    async function tickerSearch() {
+        
+        const Stocks = await axios.get(`http://localhost:3000/tickerSearch?keywords=${debouncedValue}`)
+        const filteredStocks:{bestMatches:stockdisplay[]} =Stocks.data 
+        console.log(filteredStocks)
+        setStockName(filteredStocks.bestMatches);
+        setIsListHidden(false); 
+    }
+
+    useEffect(()=>{
+        tickerSearch()
+    },[debouncedValue])
 
     if (user.username) {
         return (
@@ -28,15 +53,12 @@ export default function Appbar() {
                             type="search"
                             placeholder="stock..."
                             className="md:w-[100px] lg:w-[300px]"
-                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                                const stock = e.target.value
+                            onChange={async(e: React.ChangeEvent<HTMLInputElement>) => {
+                               
                                 
                                 if(e.target.value){
-                                    const filteredStocks: SearchStocks = stocks.filter((ele: stockType) => {
-                                        return ele.name.toLowerCase().includes(stock.toLowerCase());
-                                    });
-                                    setStockName(filteredStocks);
-                                    setIsListHidden(false); // Show the list when typing in the input again
+                                    setsearch(e.target.value)
+                                    
                                 }else{
                                     setStockName([])
                                 }
@@ -60,8 +82,8 @@ export default function Appbar() {
                             <li key={ele.name}>
                                 <Button variant="link" onClick={() => {
                                     navigate(`/stockFundamentals/${ele.symbol}`);
-                                    setIsListHidden(true); // Hide the list after clicking a stock
-                                    setStockName([]); // Clear the search results after clicking a stock
+                                    setIsListHidden(true); 
+                                    setStockName([]); 
                                 }}>
                                     {ele.name}
                                 </Button> {ele.exchange} {ele.assetType}
